@@ -27,4 +27,12 @@ export class BookService {
         }
         return book;
     }
+
+    async updateById(id: string, book: Book): Promise<Book> {
+        return await this.bookModel.findByIdAndUpdate(id, book, {
+            new: true,
+            runValidators: true
+        })
+    }
+
 }
